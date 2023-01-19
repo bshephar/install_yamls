@@ -19,7 +19,7 @@ STORAGE_CLASS       ?= "local-storage"
 # OpenStack Operator
 OPENSTACK_IMG        ?= quay.io/openstack-k8s-operators/openstack-operator-index:latest
 OPENSTACK_REPO       ?= https://github.com/openstack-k8s-operators/openstack-operator.git
-OPENSTACK_BRANCH     ?= master
+OPENSTACK_BRANCH     ?= main
 OPENSTACK_CTLPLANE   ?= config/samples/core_v1beta1_openstackcontrolplane.yaml
 OPENSTACK_CR         ?= ${OPERATOR_BASE_DIR}/openstack-operator/${OPENSTACK_CTLPLANE}
 
