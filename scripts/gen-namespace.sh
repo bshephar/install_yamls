@@ -35,4 +35,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
     name: ${NAMESPACE}
+    labels:
+      security.openshift.io/scc.podSecurityLabelSync: "false"
+      pod-security.kubernetes.io/enforce: privileged
 EOF_CAT
