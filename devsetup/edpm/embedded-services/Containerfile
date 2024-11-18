@@ -1,0 +1,5 @@
+FROM quay.io/openstack-k8s-operators/edpm-bootc:latest
+
+COPY embedded-services/quadlets/systemd/service-template.kube /usr/share/containers/systemd/edpm-service@.kube
+COPY embedded-services/quadlets/ovn_controller/ovn_controller.yaml /usr/share/containers/systemd/ovn_controller.yaml
+COPY embedded-services/quadlets/ovn_controller/ovn_controller.image /usr/share/containers/systemd/ovn_controller.image
