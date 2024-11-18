@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: ovn_controller
+  name: ovn_controller
+spec:
+  containers:
+    - env:
+      - name: "LANG"
+        value: "en_US.UTF-8"
+      - name: "KOLLA_CONFIG_STRATEGY"
+	value: "COPY_ALWAYS"
+      - name: "PATH"
+	value: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      - name: "container"
+	value: "oci"
+      - name: "HOME"
+	value: "/root"
+      - name: "HOSTNAME"
+	value: "{{ ansible_hostname }}"
+    command:
+     - "kolla_start"
+    args:
+     - "dumb-init",
+     - "--single-child",
+     - "--"
+    name: ovn_controller
+    mounts: {{ edpm_ovn_controller_volumes }}
+    privileged: true
